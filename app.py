@@ -2,16 +2,11 @@ import streamlit as st
 import pickle
 import requests
 import time
-import os
-import zipfile
-
-if not os.path.exists("similarity.pkl"):
-    with zipfile.ZipFile("similarity.pkl.zip","r") as zip_ref:
-        zip_ref.extractall()
-
+import gzip
 
 movies = pickle.load(open('movie_list.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+with gzip.open("similarity_compressed.pkl.gz","rb") as f:
+    similarity=pickle.load(f)
 
 # function to Fetch movie details
 def fetch_movie_details(movie_id):
