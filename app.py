@@ -109,14 +109,14 @@ if st.button('Recommend Movies'):
                 st.write(movie['overview'])
             st.markdown("---")
 
-# Footer part
-st.markdown(
-    """
-    <div class="footer">
-        Made by Dhruv Sharma
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# # Footer part
+# st.markdown(
+#     """
+#     <div class="footer">
+#         Made by Dhruv Sharma
+#     </div>
+#     """,
+#     unsafe_allow_html=True
+# )
 
 
