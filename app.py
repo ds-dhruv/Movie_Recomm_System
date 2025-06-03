@@ -4,6 +4,43 @@ import requests
 import time
 import gzip
 
+from pathlib import Path
+
+# Local GIF path
+gif_path = "ShangChi_vs_Xu_Wenwu_Fight__ShangChi_and_The_Legend_of_The.gif"
+
+def set_gif_background(gif_path):
+    file_url = Path(gif_path).as_posix()
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: url({file_url});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }}
+
+        .stApp::before {{
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+            z-index: -1;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Call the function
+set_gif_background(gif_path)
+
+
 movies = pickle.load(open('movie_list.pkl', 'rb'))
 with gzip.open("similarity_compressed.pkl.gz","rb") as f:
     similarity=pickle.load(f)
