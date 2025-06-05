@@ -6,6 +6,8 @@ import gzip
 
 from pathlib import Path
 
+st.set_page_config(page_title="Movie Recommender", layout="wide")
+
 # Local GIF path
 gif_path = "ShangChi_vs_Xu_Wenwu_Fight__ShangChi_and_The_Legend_of_The.gif"
 
@@ -78,7 +80,7 @@ def recommend(movie, num_recommendations=5):
     return recommended_data
 
 # Streamlit App - it will run in browser
-st.set_page_config(page_title="Movie Recommender", layout="wide")
+
 st.markdown(
     """
     <style>
